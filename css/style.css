@@ -1,0 +1,566 @@
+* {
+    box-sizing: border-box;
+}
+body {
+        font-family: 'Roboto', sans-serif; /*после того, как подключили шрифты в html, копируем ниже ссылку для css*/
+        
+}
+.conteiner {
+        max-width: 1194px;
+        margin: auto; /*автоматически на любом устройстве выранивается по центру */
+}
+.header {
+        display: flex;
+        align-items: center;
+        padding: 10px 0px; /*воздух сверху и снизу*/
+}
+.search-form {
+        margin-left: 76px;
+        background: rgba(238, 238, 238, 0.71);
+        border-radius: 10px;
+        display: flex;
+        max-width: 620px; /*мах ширина*/
+        flex-grow: 1; /*увеличение, т.е. он растягивается на всю ширину*/
+        position: relative; /*относительно нее выровнять кнопку search-buttom*/
+}
+.search-button {
+        background-color: transparent;
+        border: none;/*отключение подводки*/
+        position: absolute; /*относительно всего поля относительно (свободно)перемещается*/
+        right: 0;
+        top: 0; /*прикрепили к правому верхнему полю*/
+        height: 100%;
+        padding-left: 18px;
+        padding-right: 18px;
+        cursor: pointer;/*курсор меняется на пальчик*/
+}
+.search-input {
+        background-color: transparent;/*прозрачный фон*/
+        border: none;
+        width: 100%; /*100% ширины search-form*/
+        padding-left: 20px;/*отступ слева*/
+        padding-right: 50px; /*внутренний оступ*/
+        padding-top: 13px;
+        padding-bottom: 13px;
+}
+.login {
+        background: #EBEBEB;
+        border-radius: 50px;
+        padding: 16px 30px;    
+        display: block; /*кнопка блочная и вся кликабельная*/
+        text-decoration: none;/*убрать линию ссылки*/
+        font-size: 14px;
+        line-height: 16px;
+        color: #000000; /*высота, цвет, размер - взяла из figma*/
+
+}
+.auth {
+        margin-left: auto;
+}
+.shoping-card {
+        position: relative;/*для размещение счетчика внизу*/
+        text-decoration: none;
+        width: 49px;
+        height: 49px;
+        border-radius: 50%; /*скругление*/
+        background: #F66A15;
+        display: flex; /*выравниваем посерединке*/
+        align-items: center; /*выравниваем посерединке*/
+        justify-content: center; /*выравниваем посерединке*/
+        margin-left: 30px; /*отодвинуть корзину от "Войти"*/
+}
+.shopping-conter {
+        position: absolute; /*размещение счетчика внизу*/
+        right: 0;/*размещение счетчика внизу*/
+        bottom: 0;/*размещение счетчика внизу*/
+        background: #FFAF19;
+        color: #000000;
+        font-size: 8px; /*figma*/
+        line-height: 9px; /*figma*/
+        display: block;
+        padding: 5px;
+        border-radius: 50%;
+        
+}
+.slide { 
+        position: relative; /*в псевдоэл-те obsolut*/
+        border-radius: 20px; /*скругление для всех слайдов*/
+        overflow: hidden; /*если что-то вываливается за края - это надо спрятать*/
+        min-height: 400px; /*смотреть в макете figma*/
+        display: flex;
+        align-items: center;
+        padding: 100px;
+}
+.slide-text-light {
+        background-color: gray;
+        color: white;
+       
+}
+.slide-content {
+        position: relative; /*задается, чтобы текст был поверх затемнения картинки*/
+        max-width: 400px;/*ограничение контейнера по ширине*/
+}
+.slider-buttons{
+        position: absolute;
+        right: 46px;/*кнопки перелистывания отталкиваются справа*/
+        bottom: 40px;
+        z-index: 9; /*чтобы кнопки вылезли вперед из под слоя с картинкой*/
+        display: flex; /*чтобы стали в ряд*/
+        align-items: center;
+        width: 100px;
+        justify-content: space-between;
+}
+.slider-button {
+        cursor: pointer;
+}
+.swiper {
+        position: relative;
+}
+.slide-title {
+        margin: 0;/*убираем отступы, т.к. браузер задал их по умолчанию*/
+        margin-bottom: 15px;/*подправили нижний отступ, согласно макету*/
+        font-weight: bold; /*настройки шрифта взяла из figma*/
+        font-size: 50px;
+        line-height: 51px; 
+}
+.slide-text {
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 23px;
+        margin-bottom: 30px;/*растояние до кнопки по макету*/
+}
+.button-ptimery {
+        background: #F47322;
+        color: #fff;
+        
+}
+.button-default {
+        background-color: #fff;
+        color: #5F5F61;
+}
+.button {
+        border-radius: 25px;
+        padding: 12px 50px;
+        display: inline-block; /*для того, чтобы она не вылазила за пределы*/
+        text-decoration: none;
+        font-style: normal; /*стили из макета*/
+        font-weight: 500;  /*стили из макета*/
+        font-size: 14px;  /*стили из макета*/
+        line-height: 23px;  /*стили из макета*/
+}
+.slide-summer {
+        background-image: url(../img/summer.png);
+        background-repeat: no-repeat;/*картинка не будет повторяться по горизонтали и вертикали*/
+        background-size: cover;/*изображение аккуратно растягивается по ширене и высотк*/
+}
+.slide-autumn {
+        background-image: url(../img/autumn.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+}
+.slide-vitamin {
+        background-image: url(../img/vitamin.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+}
+.slide::before { /*создается для того, чтобы применить затемнениие для фоновой картинки*/
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 100%;/*растягиваем на весю ширину*/
+        height: 100%;
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.43) 40.45%, rgba(0, 0, 0, 0) 100%);
+} /*эл-т, которого нет в html, появляется только в стилях*/
+
+.promo {
+        padding-top: 50px; /*отступ от верхнего слайда*/
+        padding-bottom: 50px;
+        display: flex;
+        justify-content: space-between; /*разместить карточки по разным краям*/
+        margin: -20px;
+       
+}
+.card {
+        flex: 50%;
+        margin: 20px;
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden; /*все что выпадает-скрываем*/
+        padding: 32px;
+        max-width:570px; /*ограничение ширины карточки*/
+        min-height: 380px;
+        display: flex;
+        flex-direction: column;/*текст в карточке выстраивается в колонку*/
+        justify-content: space-between; /*заголовок вверх - футер вниз*/
+        
+}
+.card:before { /*у карточки есть затемнитель*/
+        z-index: -1;
+        content: ""; /*должен быть пустой контент*/
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+}
+.card-title {
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 23px;
+        margin-top: 4px;
+        margin-bottom: 21px;
+      }
+
+.card-description {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 23px;
+        max-width: 200px;
+}
+
+.card-text-light {
+        color: #fff;
+}
+.card-price { /*ценник*/
+        display: block; /*делаем блочным, чтобы он занимал всю строчку, а условия съехали вниз*/
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 23px;
+        margin-bottom: 8px;
+}
+.card-delivery {
+        display: block;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 23px;
+        margin-bottom: 25px;
+}
+.card-img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2; /*отодвигаем картинку, чтобы не перекрывала текст и затемнение*/
+        object-fit: cover; /*если вдруг картинка растягивается, чтобы она обрезалась*/
+}
+
+/*Секция 3 Доставка еды*/
+
+.section-title {
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 23px;
+        margin: 0; /*убрать отступы*/
+        margin-bottom: 47px;
+}
+.delivery-week {
+        padding: 100px 0; /*добавили воздуха, в самом конце верстки этой секции*/
+}
+.delivety-cards {
+        display: flex;
+        flex-wrap: wrap; /*перенос карточек на две строки*/
+        margin: -15px;
+        
+}
+.delivery-card {
+        position: relative;
+        width: 275px;
+        height: 182px;
+        border-radius: 18px;
+        overflow: hidden; /*картинка вместилась неправильно, поэтому ниже задаем стили для img*/
+        margin: 15px; /*растояние между карточками*/
+}
+.delivery-img {
+        width: 100%;
+        height: 100%; /*может неверно растянуться, поэтому доб.сл. св-во*/
+        object-fit: cover;
+}
+.delivery-tag {
+        position: absolute;
+        left: 10px;
+        top: 16px;
+        border-radius: 30px;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 23px;
+        color: #49494F;
+        padding: 5px 10px;
+
+}
+.tag-health { /*подложка для ЗОЖ*/
+        background: #D0FD89; /*скругления заданы в св-х ЗОЖ*/
+}
+.tag-veg {
+        background: #AEBC41;
+        color: #fff;
+}
+.tag-meat {
+        background: #B86B78;
+        color: #fff;
+}
+.tag-chiken {
+        background: #D68334;
+        color: #fff;
+}
+.tag-fish {
+        background: #CD6255;
+        color: #fff;
+}
+.tag-kids {
+        background: #FFFDBF;
+}
+.tag-parents {
+        background: #F6FDC8;
+}
+.section-grey {
+        background-color: #F6F6F6;
+}
+
+/*категории блюд*/
+
+.catigory {
+        padding-top: 40px;
+        padding-bottom: 60px;
+}
+.tabs {
+        display: flex;
+        margin: 0;
+        margin-bottom: 62px;
+        padding: 0; /*обнулили отступы и табы легли в одну строку*/
+        list-style: none;
+}
+.tabs-link {
+        font-size: 20px;
+        line-height: 23px;
+        color: #49494F;
+        text-decoration: none;
+        margin-right: 58px;
+}
+.tabs-link.active {
+        color: #F37321;
+}
+.tabs-content { /*разместить карточки в линию, после того, как полностью свёрстана самая первая*/
+        display: flex;
+        margin: -15px;
+        /* justify-content: space-between; */
+}
+.tabs-card {
+        margin: 15px;
+        max-width: 270px;
+        border-radius: 20px;
+        overflow: hidden;
+        background-color: #fff;
+}
+.tabs-img {
+        max-width: 100%;
+}
+.tabs-card-content {
+        padding: 23px;
+}
+.tabs-title {
+        margin-top: 0;
+        margin-bottom: 13px;
+        color: #000000;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 23px;
+}
+.tabs-description {
+        color: #B9B9BE;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 23px;
+}
+.tabs-info {
+        display: flex;
+        align-items: center; /*выравнивание по вертикали*/
+        justify-content: space-between; /*после того, как заданы все значения для кнопки, задаем это значение, чтобы раскидать их по краям*/
+}
+.tabs-price {
+        font-weight: 500;
+        font-size: 23px;
+        line-height: 23px;
+        color: #4B4B51;
+        display: block; /*чтобы "вес" ушёл вниз*/
+        margin-bottom: 5px;
+}
+.tabs-weight {
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 20px;
+        color: #AAAAB1;
+}
+.button-outline {
+        cursor: pointer;
+        background-color: transparent; /*прозрачный фоновый цвет*/
+        padding: 15px 25px;
+        border: 2px solid #F37321;
+        box-sizing: border-box;
+        border-radius: 33px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        color: #F37321;
+}
+.button-centr {
+        display: block;
+        margin: auto; /*выровнили кнопку по центру*/
+        margin-top: 60px;
+        width: 315px;
+} 
+/*ПРеимущества*/
+.advant-content {
+        display: flex;
+        margin: -15px;             
+}
+.advantages-cards{
+        padding-bottom: 202px;
+}
+.advant-card {
+        margin: 15px;
+        max-width: 270px;
+        border-radius: 18px;
+        background: #FFFFFF;
+        border: 1px solid #E9E9E9;
+        box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1); 
+ }
+
+.advant-img {
+       display: block;
+       margin: auto;
+       margin-top: 30px;
+}
+
+.advant-card-content { /*настройка расположения текста внутри крточки*/
+        padding: 24px;
+        text-align: center;
+}
+
+.advant-title1 {
+        
+        padding-bottom: 52px;
+        margin: 0;
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 23px;
+        color: #000000;
+}
+
+.advant-title {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 23px;
+        color: #000000;
+}
+
+.advant-description {
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 22px;
+        color: #49494F;
+}
+.footer {
+        padding: 40px 0;/*верхние и нижние отступы*/
+        background: #F6F6F6;
+} 
+.footer-wrapper { /*выравниваем ссылки по горизонтали*/
+        display: flex;
+        align-items: center;
+}
+.footer-logo {
+        margin-right: 50px;
+}
+.footer-link {
+        font-size: 16px;
+        line-height: 23px;
+        text-decoration-line: underline;
+        color: #000000;
+        margin-right: 50px;
+}
+.social-links {
+        display: flex;
+        align-items: center;
+        margin-left: auto; /*чтобы иконки улетели влево*/
+}
+
+.social-link {
+        margin-left: 20px;
+        text-decoration: none;
+
+}
+
+@media (max-width: 1260px) {
+        .conteiner {
+                max-width: 960px;
+        }
+        .search-form {
+                margin-left: 40px;
+                margin-right: 40px;
+        }
+        .tabs-content {
+                flex-wrap: wrap; /*для переноса элементов*/
+        }
+        .tabs-card {
+                flex: 50%;
+                max-width: calc(50% - 30px); /*рассчитали с помощью calc, что их ширина должна быть 50% - 30px(отступы 15px*2)*/
+        }
+        .advant-content {
+                flex-wrap: wrap;
+        }
+        .advant-card {
+                flex: 50%;
+                max-width: calc(50% - 30px);
+        }
+                
+}
+
+@media (max-width: 992px) {
+        .container {
+          max-width: 750px;
+        }
+        .slide {
+          padding: 70px;
+        }
+        .delivery-card {
+          width: calc(50% - 30px);
+        }
+        .footer-logo {
+          margin-right: 40px;
+        }
+      }
+@media (max-width: 768px) {
+        .container {
+          max-width: 560px;
+        }
+        .header {
+          flex-wrap: wrap;
+        }
+        .search-form {
+          order: 5;
+          margin-left: 0;
+          margin-right: 0;
+          margin-top: 15px;
+          margin-bottom: 15px;
+        }
+        .promo {
+          flex-wrap: wrap;
+        }
+      }
+@media (max-width: 576px) {
+        .container {
+          max-width: 90%;
+        }
+        .tabs-card {
+          max-width: 100%;
+        }
+        .advant-card {
+          min-width: 100%;
+        }
+      }
+
+      
